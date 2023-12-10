@@ -17,6 +17,9 @@ class Board {
   start() {
     this.score = 0; // 分数
     // 填充最初数据
+    value = this.newNext()
+    ran
+
   }
   // 随机生成一个模块
   newNext() {
