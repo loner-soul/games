@@ -23,9 +23,9 @@ class Board {
   }
   // 随机生成一个模块
   newNext() {
+    // TODO
     return 2;
   }
-  //
 }
 
 // Test
