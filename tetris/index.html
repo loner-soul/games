@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>tetris</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/konva@4.0.0/konva.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="static/js/store/store.js"></script>
+    <script src="static/js/tetris/block.js"></script>
+    <script src="static/js/tetris/button.js"></script>
+    <script src="static/js/tetris/tetris.js"></script>
+    <script src="static/js/api/base.js"></script>
+    <script src="static/js/api/user.js"></script>
+    <script src="static/js/api/http.js"></script>
+    <script src="static/js/index.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row gx-5 gy-5"><p style="text-align: center;">操作：↑变形；↓下移；←左移；→右移；空格 暂停/开始</p></div>
+    <div id="main" class="row" >
+        <div id="leftBox" class="col">
+            <div>
+                <form id="login-form" class="mb-3 needs-validation" novalidate>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">昵称</span>
+                        <input id="input-username" type="text" class="form-control" placeholder="nickname" name="username" aria-label="Username" required>
+                        <div class="invalid-feedback">
+                            请输入昵称
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="for-password">密码</span>
+                        <input id="input-password" type="password" class="form-control" placeholder="password" name="password" aria-label="password" required>
+                    </div>
+                    <div style="text-align:right">
+                        <button type="submit" id="login-button" class="btn btn-primary">登入</button>
+                    </div>
+                </form>
+            </div>
+            <div id="userinfo">
+                <img id="user-avatar" src="" alt="" class="avatar" />
+                <span id="user-nickname"></span>
+                <button type="button" id="logout-button" class="btn btn-primary">退出登入</button>
+            </div>
+            <div id="rank">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">排名</th>
+                        <th scope="col">头像</th>
+                        <th scope="col">用户</th>
+                        <th scope="col">分数</th>
+                    </tr>
+                    </thead>
+                    <tbody id="history-tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="tetris" class="col"></div>
+    </div>
+</div>
+</body>
+<style>
+    /*#main {*/
+    /*    display: flex;*/
+    /*    justify-content: center;*/
+    /*}*/
+    /*#leftBox {*/
+    /*    width: 300px;*/
+    /*}*/
+    /*#main > div {*/
+    /*    padding: 20px;*/
+    /*}*/
+    .avatar {
+        width:30px;
+        height:30px;
+        margin-right: 5px;
+        border-radius:50%;
+    }
+    .avatar-min {
+        width:20px;
+        height:20px;
+        /*margin-right: 5px;*/
+        border-radius:50%;
+    }
+    #userinfo {
+        margin: 10px;
+    }
+    #user-nickname {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+</style>
+
+</html>
+

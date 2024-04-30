@@ -1,0 +1,8 @@
+build/
+dist.zip
+
+.vscode
+.idea
+dist/
+
+.env.local
